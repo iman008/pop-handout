@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{tikz,lipsum,lmodern}
 \usepackage{epsfig,graphicx,subfigure,amsthm,amsmath}
+\usepackage{amssymb}
 \usepackage{fontspec}
 \usepackage{color,xcolor} 
 \usepackage{xepersian}
@@ -9,11 +10,12 @@
 \newcommand{\half}{\frac12}
 \usepackage{amsmath} 
 \usepackage{xcolor}
-\usepackage{hyperref}
+\usepackage[hyphens,spaces,obeyspaces]{url}
+\usepackage[colorlinks,allcolors=blue]{hyperref}
 \usepackage[breakable,most]{tcolorbox}
 \renewcommand{\headrulewidth}{.4mm} % header line width 
 \usepackage{fancyhdr}
-
+\usepackage{mathtools}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhfoffset[L]{1cm} % left extra length
@@ -22,24 +24,6 @@
 \lhead{\bfseries قضیه کیسی و کاربرد ها}
 \rfoot{صفحه~\thepage}
 
-
-\hypersetup{ 
-colorlinks=true,
-linkcolor=blue,
-filecolor=blue,
-citecolor = black,
-urlcolor=magenta,
-}
-
-\author{ایمان قادر \and  مهران طلایی }
-\title{قضیه کیسی و کاربرد ها}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
-قضیه کیسی از قضایای کلاسیک و پر استفاده در هندسه است که با توجه به کمبود متریال آموزشی در حیطه این مبحث ولی کاربرد زیاد آن، به گرد آوری این مقاله روی آوردیم که شامل تعاریف و قضایای مورد نیاز و همینطوری از هر بخش مثال هایی مطرح شده اند که به یادگیری هرچه بیشتر کمک میکنند. و در انتها تمرین هایی برای دست ورزی و خودآزمایی قرار داده شده است.
-\end{abstract}
 
 \newtcbtheorem[breakable,enhanced ,pad at break*=1mm,auto counter,number within=section]{theo}%
   {قضیه}{
@@ -52,7 +36,25 @@ urlcolor=magenta,
 \newtcbtheorem[enhanced jigsaw,breakable,pad at break*=1mm]{defi}%
   {تعریف }{
      arc=0mm, colback=black!5!white,colframe=white!30!black}{definition}
+
+\newtcbtheorem[enhanced jigsaw,breakable,pad at break*=1mm]{lemm}%
+  {لم }{
+     arc=0mm, colback=black!5!white,colframe=white!30!orange}{lemma}
      
+\newtheorem{prob}{}
+
+
+\author{ایمان قادر \and  مهران طلایی }
+\title{قضیه کیسی و کاربرد ها}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+قضیه کیسی از قضایای کلاسیک و پر استفاده در هندسه است که با توجه به کمبود متریال آموزشی در حیطه این مبحث ولی کاربرد زیاد آن، به گرد آوری این مقاله روی آوردیم که شامل تعاریف و قضایای مورد نیاز و همینطوری از هر بخش مثال هایی مطرح شده اند که به یادگیری هرچه بیشتر کمک میکنند. و در انتها تمرین هایی برای دست ورزی و خودآزمایی قرار داده شده است.
+\end{abstract}
+
+
 ابتدا با یک تعریف شروع میکنیم:
 \begin{defi}{}{}
 تابع اختلاف قوت نقطه $P$ نسبت به دو دایره $\omega_1$ و $\omega_2$ را به شکل زیر تعریف میکنیم:
@@ -163,8 +165,50 @@ Pow_{\omega}^D-Pow_{\omega_B}^D&=2 dist(D,\overline{AC}) (r_B-r) \\
 
 \section{نسبت قوت}
 
-\begin{theo}
+\begin{lemm}{(لم نسبت قوت)}{}
+فرض کنید که دوایر ‎‎$‎‎\omega‎_1‎$‎‎ ‏و ‎‎$‎‎\omega‎_2‎$‎ ‏در صفحه موجود اند و ‎‎‎‏برای نقطه ‎‎$‎P‎$‎‎ ‏مقدار ‎‎$‎\frac{Pow_{‎\omega‎_1}^P}{Pow_{\omega_2}^P}‎$‎ ‏ثابت است. آنوقت مکان هندسی نقاط ‎‎$‎P‎$‎ ‏با این خاصیت دایره ای است هم محور با ‎‎$‎\omega_1‎$‎ ‏و ‎‎$‎‎\omega‎_2‎$‎.
+\end{lemm}
+\bold{‎‏اثبات:‎}‎
+\includegraphics[scale=1]{powerratio.pdf}
+‎‎
+فرض میکنیم که ‎$‎X‎$‎‏ و ‎‎‎$‎Y‎$‎‎‎‎ ‏محل برخورد دو دایره ‎‎$‎\omega_1‎$‎ ‏و ‎‎$‎\omega_2‎$ ‎‎‎‎‎‎‏ باشند. و ‎‎$‎O'‎$‎‏‏،‎‎$‎O_1‎$‎‏ و ‎‎$‎O_2‎$‎ ‏به ترتیب مرکز دوایر ‎‎$‎(PXY)‎$‎‏، ‎‎$‎\omega_1‎$‎ ‏و ‎‎$‎\omega_2‎$‎ ‏هستند.‏ ‎$‎‎‎l‎$‎‏ ‎‎‏را هم محور اصلی ‎‎$‎\omega_1‎$‎ ‏و ‎‎$‎\omega_2‎$‎ ‏معرفی میکنیم. ادعا میکنیم که ‎‎$‎O'‎$‎‎ ساکن است‏، چون اگر چنین باشد ‎‎$‎P‎$‎‎ ‏نیز بر روی دایره ای ثابت حرکت میکند.
 
-\end{theo}
+حال با دو بار استفاده از قضیه کیسی داریم:
+\begin{align*}
+    \begin{rcases}
+    \mathbf{P}(P,(AXY),\omega_1)=2 dist (P,l)O'O_1 &=Pow_{\omega_1}^P \\ ‎\mathbf{P}(P,(AXY),\omega_2)=2 ‎dist ‎(P,l)O'O_2 &=Pow_{\omega_2}^P
+    \end{rcases} \implies \frac{Pow_{\omega_1}^P}{Pow_{\omega_2}^P}=\frac{O_1O'}{O_2O'}
+\end{align*}
+
+‏بنا بر این نسبت ‎$‎\frac{O_1O'}{O_2O'}‎‎‎$‎‎ ‏ثابت است که با توجه به جهت ‎‎$‎P‎$‎‎ فقط میتوان یک نقطه برای ‎‎$‎O'‎$‎‎‎ ‏در نظر گرفت.
+
+\begin{exam}{}{}
+فرض کنید نقطه $P$ نقطه ای در صفحه مثلث $\triangle ABC$ است. و خط $l$ خطوط $BC$، $AC$ و $AB$ به ترتیب در نقاط $D$، $E$ و$F$ قطع میکند.
+‎‎$‎A'‎$‎‎‎‎‎‎ ‏را محل برخورد خط ‎‎$‎AP‎$‎ ‏با ‎‎$‎l‎$‎‎‎ ‏و نقاط ‎‎$‎B'‎$‎ ‏و ‎‎$‎C'‎$‎ ‏را به همین ترتیب تعریف میکنیم.
+اثبات کنید که ‎‏دوایر ‎‎$‎(PDA')‎$‎ ‏‏، ‎‎$‎(PEB')‎$‎ ‏و ‎‎$‎(PFC'‎)‎$‎‎ ‏در نقطه ی دیگری به غیر از ‎‎$‎P‎$‎ ‏برخورد دارند.
+\end{exam}
+\newpage
+اثبات:
+
+\includegraphics[scale=0.8]{powerratioexam.pdf}
+
+دایره ‎‎$‎(PA'D)‎$‎‎ ‏را ‎‎$‎‎\omega‎_A‎$‎‎‎‎‎‎‎ ‏مینامیم و ‎‎$‎‎\omega‎_B‎$‎ ‏و ‎‎$‎‎\omega‎_C‎$‎ ‏را به نحو مشابه تعریف میکنیم. حالا کافی است اثبات کنیم که ‎‎‎$‎‎\frac{Pow_{‎\omega_B}^A'‎}{Pow_{‎\omega_C}^A'}‎‎=‎
+‎‎\frac{Pow_{‎\omega_B}^D‎}{Pow_{‎\omega_C}^D}‎$‎‎‎ زیرا برا اساس لم نسبت قوت میتوانیم نتیجه بگیریم که ‎‎$‎D‎$‎ ‏و ‎‎$‎A'‎$‎ ‏برو روی دایره ای قرار دارند که از قضا با دوایر ‎‎$‎\omega_B‎$‎ ‏و ‎‎$‎\omega_C‎$‎ ‏هم محور است و ما را به نتیجه مطلوب میرساند.
+بنا بر این داریم:
+\begin{align*}
+    \frac{Pow_{‎\omega_B}^D‎}{Pow_{‎\omega_C}^D} ‎&=‎ \frac{Pow_{‎\omega_B}^A'‎}{Pow_{‎\omega_C}^A'}\\‎
+\iff  ‎\frac{DB' \dot DE}{DF \dot DC'} ‎&= ‎‎\frac{A'B' \dot A'E}{A'C' \dot A'F} ‎\\ ‎‎‎
+\iff ‎\frac{‎\frac{DB'}{DC'}‎}{‎\frac{A'B'}{A'C'}‎}&=‎‎‎\frac{‎\frac{DE}{DF}‎}{‎\frac{A'E}{A'F}‎} \thickspace (*)
+\end{align*}
+حال با استفاده از ناهمساز ادامه میدهیم:
+\[LHS=(DA',B'C')\stackrel{P}{=} (D \overline{AP}\cap \overline{BC},BC)\stackrel{A}{=} (DA',FE)=RHS\] \blacksquare
+
+\newpage
+
+\section{سوالات برای تمرین بیشتر}
+\begin{prob}
+{
+\href{https://artofproblemsolving.com/community/c6h1876745p12752769}{المپیاد جهانی ریاضی 2019}}
+\end{prob}
 
 \end{document}
